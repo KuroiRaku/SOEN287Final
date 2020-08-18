@@ -69,3 +69,5 @@ and in the source code files, inside TODO comments.
         - don't share it by using "everybody with the link" or similar methods, share it directly with the email address
         given above (the `gmail.com` address)
         - the zip file should be the same as described in the main Moodle submission option
+        
+# Remember to install requirement.txt! 
