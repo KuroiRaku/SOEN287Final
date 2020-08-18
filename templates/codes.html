@@ -1,0 +1,27 @@
+{% extends "exam.html" %}
+
+    {% block title %}
+    <Title>Postal Codes</Title>
+    <script type="text/javascript" src= "{{url_for('static',filename='codes.js')}}"></script>
+    {% endblock %}
+
+
+  {% block content %}
+  {{super()}}
+  <h1>Postal Code validation</h1>
+    <!-- The action is usually an endpoint on the server to handle the submitted data -->
+    <form>
+      <label>Your Country
+        <select id="country">
+          <option style="background-image:url('https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/1280px-Flag_of_Brazil.svg.png');" value="Brazil"> Brazil</option>
+          <option style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg');" value="Canada"> Canada</option>
+        </label><br/>
+      <label> Postal Code:
+        <br>
+        <input type="text" id="postal" class="">
+        <button onclick="validate()"> submit</button>
+      </label>
+    </form>
+    <div class="flags">
+    </div>
+  {% endblock %}

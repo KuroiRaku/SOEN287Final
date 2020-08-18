@@ -1,0 +1,43 @@
+{% extends "exam.html" %}
+
+    {% block title %}
+    <Title>Question 3</Title>
+    {% endblock %}
+
+  {% block content %}
+  {{super()}}
+<h1>Question 3</h1>
+<h3>Warning: You must have completed question 2 before attempting this question.</h3>
+<ul>
+    <li>This question is about completing the <code>/survey/results</code> endpoint.</li>
+    <li>After successfully completing the form in question 2, users will be redirected to this endpoint.</li>
+    <li>The purpose of this endpoint is to display the survey results in a table by reading the data in the CSV file and
+        generating the table with Jinja2 code.
+    </li>
+    <li>You will need to create a HTML template (file <code>templates/results.html</code>), extending the exam template.
+    </li>
+</ul>
+
+<h3>Steps</h3>
+<ol>
+    <li>Open the CSV file containing the survey results, and read the data into a list or some other structure.</li>
+    <li>Render the <code>templates/results.html</code> template with the data read from the file.</li>
+    <li>Using Jinja2 code in the template, create a table to display the data read from the file.</li>
+    <li>Add another table in the template, containing the survey statistics:
+        <ol>
+            <li>the total number of survey submissions</li>
+            <li>the number of anonymous submissions (number of submissions with hidden email addresses)</li>
+            <li>the percentage of anonymous submissions</li>
+            <li>the number of answers for each choice of the MCQ (the number of <code>a</code> answers, the number of
+                <code>b</code> answers, etc...)
+            </li>
+            <li>the percentage for each choice of the MCQ</li>
+        </ol>
+    </li>
+    <li>It is probably easier to calculate these statistics in the endpoint Python code, and then pass the calculated
+        statistics to the template for displaying. The statistics table will always have the same structure (same number
+        of rows and columns).
+    </li>
+    <li>You should put the statistics table <em>before</em> the survey results table.</li>
+</ol>
+{% endblock %}

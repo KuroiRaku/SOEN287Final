@@ -1,0 +1,119 @@
+{% extends "exam.html" %}
+
+    {% block title %}
+    <Title>Question 4</Title>
+    {% endblock %}
+
+
+    {% block style %}
+    {{super()}}
+    <style>
+        table, td, th {
+            border-style: solid;
+            border-width: thin;
+            border-collapse: collapse;
+        }
+    </style>
+    {% endblock %}
+{% block content %}
+{{super()}}
+<h1>Question 4</h1>
+<a href="/codes">Postal Codes</a>
+<ul>
+    <li>This question is about using JavaScript and regular expressions to validate the postal codes.</li>
+    <li>The Python part of your answer has to be written in the <code>app.py</code> file, in the proper place, as
+        indicated in the <strong>TODO</strong> comments.
+    </li>
+    <li>You will need to create a HTML template (file <code>templates/codes.html</code>), extending the exam template.
+    </li>
+    <li>You will also need to create a JavaScript file (<code>static/codes.js</code>) to put your JS code in.</li>
+    <li><strong>Note:</strong> there is no Python code in this question, other than adding an endpoint to render the
+        HTML template. The only needed Jinja2 code is for the template inheritance and contents block definition in the
+        new template.
+    </li>
+</ul>
+<a href="http://www.fedex.com/be/shippingguide/postalcodeformat.html">FedEx Postal Code Format</a>
+<ol>
+    <li>Create a HTML template (file <code>templates/codes.html</code>), extending the exam template. In the contents
+        block of this template, you should have
+        <ul>
+            <li>a drop down select field, with 5 options: Brazil, Canada, China, Thailand and United Kingdom</li>
+            <li>an input text field for the user to enter a postal code</li>
+            <li>an image of the selected country's flag, inside a link referring to the Google Maps page for that
+                country (for example <a href="https://www.google.com/maps/place/Canada/"><code>https://www.google.com/maps/place/Canada</code></a>).
+                The flag image should be an external image.
+            </li>
+        </ul>
+    </li>
+    <li>The goal is to validate the postal code entered by the user according the postal code format for the selected
+        country. The correct postal code formats are given in the table below. In the table <code>N</code> represents a
+        digit, while <code>A</code> represents a letter. Multiple rows for a country (here, for UK) indicates that there
+        are multiple valid postal code formats for that country, therefore your code will need to accept all possible
+        valid formats for the country.
+    </li>
+    <li>When a country is selected in the list, the acceptable postal code format(s) for this country should be
+        displayed
+        somewhere in the page. The flag and the Google Maps link should match the selected country.
+    </li>
+    <li>There should be input validation on the postal code text field to make sure the postal code follows the proper
+        format for the selected country. There should be some visual feedback when the postal code doesn't follow the
+        proper format. Your code should be case-insensitive (it should accept a mix of lower and upper case letters),
+        but it should replace all lower case letters with their uppercase equivalent after validation.
+    </li>
+    <li>Create an endpoint for your <code>templates/codes.html</code> template in the file <code>app.py</code>. The
+        route should be <code>/codes</code>. Put your code where indicated in the TODO comments.
+</ol>
+
+<table>
+    <caption>Postal Code Formats for 5 countries</caption>
+    <thead>
+    <tr>
+        <th>Country Code</th>
+        <th>Country</th>
+        <th>Postal Code Format</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>BR</td>
+        <td>Brazil</td>
+        <td><code>NNNNNNNN</code></td>
+    </tr>
+    <tr>
+        <td>CA</td>
+        <td>Canada</td>
+        <td><code>ANA NAN</code></td>
+    </tr>
+    <tr>
+        <td>CN</td>
+        <td>China</td>
+        <td><code>NNNNNN</code></td>
+    </tr>
+    <tr>
+        <td>TH</td>
+        <td>Thailand</td>
+        <td><code>NNNNN</code></td>
+    </tr>
+    <tr>
+        <td rowspan="6">UK</td>
+        <td rowspan="6">United Kingdom</td>
+        <td><code>AANNAA</code></td>
+    </tr>
+    <tr>
+        <td><code>AANANAA</code></td>
+    </tr>
+    <tr>
+        <td><code>AANNNAA</code></td>
+    </tr>
+    <tr>
+        <td><code>ANNAA</code></td>
+    </tr>
+    <tr>
+        <td><code>ANANAA</code></td>
+    </tr>
+    <tr>
+        <td><code>ANNNAA</code></td>
+    </tr>
+    </tbody>
+</table>
+{% endblock %}

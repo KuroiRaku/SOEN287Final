@@ -1,0 +1,36 @@
+body{
+  background-color: lightblue;
+  font-family: "Josefin Slab";
+}
+
+code strong {
+  font-family: 'Open Sans';
+}
+
+table, th, td{
+  border: 1px solid black;
+  border-width: 100%;
+}
+
+th,td{
+  padding: 10px;
+}
+
+.errors{
+  color: red;
+}
+
+#navbar{
+  background-color: #932439;
+  font-size: 120%;
+  float:right;
+  border:2px solid;
+  border-color: #FFD700;
+  border-radius: 8px
+}
+ul#navbar li a{
+  color: #FFD700;
+}
+ul#navbar:hover li:hover a:hover{
+  color: lightgreen;
+}

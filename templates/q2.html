@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends "exam.html" %}
+
+{% block title %}<Title>Question 2</Title>
+{% endblock %}
+
+{% block content %}
+{{super()}}
+<h1>Question 2</h1>
+<a href="/survey">Survey</a>
+<ul>
+    <li>This question is about HTML forms and how to process them in Flask.</li>
+    <li>The Python part of your answer has to be written in the <code>app.py</code> file, in the proper places, as
+        indicated in the <strong>TODO</strong> comments.
+    </li>
+    <li>You will need to create a HTML template (file <code>templates/survey.html</code>), extending the exam template.
+    </li>
+</ul>
+
+<h3>Steps</h3>
+<ol>
+    <li>Create a <code>FlaskForm</code> for a survey in the file <code>app.py</code>. Put your code where indicated in
+        the TODO comments.
+        <ol>
+            <li>The first field in your form should be an email input field (the person's email address who's filling
+                the survey)
+            </li>
+            <li>The second field should be a checkbox. If checked, the person's email address should be hidden in the
+                results. Otherwise, the person's email address is recorded in the results.
+            </li>
+            <li>The third field should be a color field (the person's favorite color).</li>
+            <li>Then there should be a radio button group, corresponding to the choices <code>a, b, c, d</code> of a
+                multiple-choice question (MCQ). You have to write your own question with 4 choices.
+            </li>
+        </ol>
+    </li>
+    <li>Add the proper validators to your form. Each field should be mandatory except for the checkbox field. Make sure
+        the email field contains a valid email address.
+    </li>
+    <li>Create an endpoint for your survey form in the file <code>app.py</code>. Put your code where indicated in the
+        TODO comments.
+        <ol>
+            <li>The route should be <code>/survey</code>, and it should accept both the <em>GET</em> and <em>POST</em>
+                methods. It should follow the <em>POST/REDIRECT/GET</em> pattern
+            </li>
+            <li>Method <code>GET</code>: displays the form</li>
+            <li>Method <code>POST</code>: save the survey results in a CSV file</li>
+            <li>Redirect to <code>/survey/results</code> on success (this endpoint has to be implemented in question 3)
+            </li>
+        </ol>
+    </li>
+</ol>
+{% endblock %}

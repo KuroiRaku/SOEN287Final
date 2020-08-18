@@ -1,0 +1,84 @@
+
+{% extends "exam.html" %}
+
+    {% block title %}
+    <Title>Question 1</Title>
+    {% endblock %}
+
+  {% block content %}
+  {{super()}}
+<h1>Question 1</h1>
+<ul>
+    <li>This question is about HTML, CSS, and Jinja2 template inheritance.</li>
+    <li>Do <strong>NOT</strong> use Bootstrap for this question.</li>
+    <li>Use only plain HTML and CSS.</li>
+    <li>No external CSS or JS files (included or downloaded from another server, except for examples provided in the
+        course) are allowed.
+    </li>
+    <li>All your CSS declarations have to be written the file <code>static/exam.css</code>.</li>
+</ul>
+
+<h3>Steps</h3>
+<ol>
+    <li>Create an <em>exam</em> stylesheet (file <code>static/exam.css</code>) and use it to style the
+        <em>exam</em> template (file <code>templates/exam.html</code>). Modify the exam template to include
+        the exam stylesheet in the document head.
+    </li>
+    <li>Transform, using CSS declarations written in the exam stylesheet, the unordered list in the exam template
+        into a proper navigation bar (or menu). The menu should be vertical, and should be floating to the right.
+    </li>
+    <li>Add an icon (a small image, saved inside the <code>static</code> folder) as the first menu item in your menu.
+        This should work as the <em>Home</em> menu item, to go back to the web site <em>home</em> (route <code>/</code>).
+    </li>
+    <li>Your menu should be styled this way:
+        <ol>
+            <li>the background should be <em>Concordia red</em></li>
+            <li>the menu text should be <em>Concordia yellow</em></li>
+            <li>the text should be 20% larger than the normal text size, using a fixed-width font</li>
+            <li>there should be a 2-pixel solid border, color <em>Concordia yellow</em>, with rounded corners around the
+                whole menu (but not around or between individual menu items)
+            </li>
+            <li>the menu items hover colors (text and background) should be different from the non-hover colors. You
+                choose the colors you want here. The differences should be visible when viewing the page. Try to choose
+                <em>nice</em> colors.
+            </li>
+        </ol>
+    </li>
+    <li>Modify the default colors and font for the whole web site. The default colors should not be same as for the
+        menu, so you should have different CSS declarations for them.
+    </li>
+    <li>Also modify the style of the <code>code</code>, <code>em</code> and <code>strong</code> elements to be different
+        from the default style. The exact style is for you to decide here (but choose something that makes sense and
+        doesn't make the site unreadable).
+    </li>
+    <li>Modify the exam template to become the <strong>base</strong> template of the site, using the Jinja2 template
+        syntax. There should be, at a minimum, blocks for the <code>head</code> and <code>title</code> elements. Also
+        add a <em>contents</em> <code>div</code>, and a corresponding Jinja2 block for it. The menu should appear on all
+        the pages.
+    </li>
+    <li>Add some contents to the base template. Add the following to the contents block (the exact format is up to you):
+        <ul>
+            <li>Your name</li>
+            <li>Your student ID</li>
+            <li>Your email</li>
+            <li>Your web site title or topic (from your assignment 3)</li>
+            <li>A description of your web site (100 to 200 words approximately)</li>
+            <li>A screenshot of your web site (the main page or some other interesting page, your choice)</li>
+        </ul>
+    </li>
+    <li>Modify the 4 question templates (<code>templates/q1.html</code> to <code>templates/q4.html</code>) to extend
+        the exam template. The <code>title</code> and <code>contents</code> blocks should be redefined in the 4 question
+        templates.
+    </li>
+    <li>Modify the file <code>app.py</code> to add routes for the 4 question templates (<code>templates/q1.html</code>
+        to <code>templates/q4.html</code>). Put your code where indicated in
+        the TODO comments. The links to the questions in <code>exam.html</code> should work properly
+        when running the application.
+    </li>
+    <li>Add links to the previous and the next questions in each question. For example in question 2, there should be a
+        link to question 1 and another link to question 3. In question 1, there should not be any previous question
+        link, and in the last question, there should not be a next question link. These links should be added to the
+        base template, not directly to each question page.
+    </li>
+</ol>
+{% endblock %}

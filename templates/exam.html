@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>SOEN287-S Take-Home Final Exam</title>
+    {% endblock %}
+
+    {% block styles %}
+    {% endblock %}
+    <link rel="stylesheet"  href="{{url_for('static',filename='exam.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Open+Sans|Open+Sans+Condensed:300|Oswald&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<h1>SOEN287 Take-Home Final Exam</h1>
+<ul id="navbar" >
+    <li><a href="{{url_for('exam')}}"><img src="{{url_for('static',filename='icon.png')}}" width="48" height="48"></image></a></li>
+    <li><a href="{{url_for('q1')}}">Question 1</a></li>
+    <li><a href="{{url_for('q2')}}">Question 2</a></li>
+    <li><a href="{{url_for('q3')}}">Question 3</a></li>
+    <li><a href="{{url_for('q4')}}">Question 4</a></li>
+</ul>
+<h1> Student Details </h1>
+<ul>
+    <li>Le Cherng Lee</li>
+    <li>40122814</li>
+    <li>leelecherng@hotmail.com</li>
+    <li>Content Sharing Website </li>
+    <li><p> My website is a content sharing website where I share my favourite music, games from time to time
+				The homepage will be sharing which game I'm playing and which is my current favourite music :D
+				I have created other tab for my other sections which is music, games, and about me :)
+			  I will also include contact forms so that people who are interested to help or share can reach me and also a poll in a submit feedback tab <hr>
+				My website will have a tabbed layout so user can choose which page to go if they want to.
+      The purpose of the website is to enjoy some indie artist or musicians that are underated in my opinion.
+    Game musics is one of the most underated music scene ever and I think they desesrve a lot more attention than where they are now <br>
+    I just hope people will find the content that I want to share to be enjoying and in future, I will translate lyrics of non english songs from time to time.
+   <br> my website also contains a survey form where user can submit their idea and what content they want to see in the future :)</p></li>
+    <li><img src="{{url_for('static',filename='screenshot.png')}}" width="720" height="480"></image></li>
+</ul>
+{% block content %}{% endblock %}
+</body>
+<footer>
+
+  {% if has_prev %}
+  <form action="{{back}}">
+    <button name="BackBtn" type="submit">Previous</button>
+  </form>
+  {% endif %}
+
+  {% if has_next %}
+  <form action="{{ next}}">
+    <button name="forwardBtn" type="submit">Next</button>
+  </form>
+  {% endif %}
+</footer>
+</html>

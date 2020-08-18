@@ -1,0 +1,75 @@
+{% extends "exam.html" %}
+
+    {% block title %}
+    <Title>Results</Title>
+    {% endblock %}
+
+{% block content %}
+{{super()}}
+
+
+
+<table class="result" align= "Center">
+  <caption> Statistics</caption>
+  <tr>
+    <td>Total number of survey submissions</td>
+    <td>{{number}}</td>
+  </tr>
+  <tr>
+    <td>The number of annonymous submissions</td>
+    <td>{{numberOfAnonymous}}</td>
+  </tr>
+  <tr>
+    <td>the percentage of anonymous submissions</td>
+    <td>{{percentage_of_Anonymous}}</td>
+  </tr>
+  <tr>
+    <td>the number of answers for A</td>
+    <td>{{numberOfA}}</td>
+  </tr>
+  <tr>
+    <td>the number of answers for B</td>
+    <td>{{numberOfB}}</td>
+  </tr>
+  <tr>
+    <td>the number of answers for C</td>
+    <td>{{numberOfC}}</td>
+  </tr>
+  <tr>
+    <td>the number of answers for D</td>
+    <td>{{numberOfD}}</td>
+  </tr>
+  <tr>
+    <td>the percentage for A</td>
+    <td>{{percentage_of_a}}</td>
+  </tr>
+  <tr>
+    <td>the percentage for B</td>
+    <td>{{percentage_of_b}}</td>
+  </tr>
+  <tr>
+    <td>the percentage for C</td>
+    <td>{{percentage_of_c}}</td>
+  </tr>
+  <tr>
+    <td>the percentage for D</td>
+    <td>{{percentage_of_d}}</td>
+  </tr>
+</table>
+<br>
+  <table align= "Center">
+    <caption>Result</caption>
+    <tr>
+      <th>Email</th>
+      <th>Favourite Colour</th>
+      <th>Choices</th>
+    </tr>
+    {% for result in results %}
+    <tr>
+      <td>{{result [0]}}</td>
+      <td>{{result [1]}}</td>
+      <td>{{result [2]}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

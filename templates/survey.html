@@ -1,0 +1,48 @@
+{% extends "exam.html" %}
+
+    {% block title %}
+    <Title>Survey</Title>
+    {% endblock %}
+
+{% block content %}
+<h1>Contact Form</h1>
+{% if form.errors %}
+    <ul class="errors">
+        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endif %}
+<!-- The action is usually an endpoint on the server to handle the submitted data -->
+<form action="{{ url_for('survey') }}" method="post">
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>{{ form.Email.label }}</td>
+            <td>{{ form.Email }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.EmailHidden.label }}</td>
+            <td>{{ form.EmailHidden }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.FavouriteColor.label }}</td>
+            <td>{{ form.FavouriteColor }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.ChooseAFood.label }}</td>
+          <td>{{ form.ChooseAFood }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Send</button>
+            </td>
+        </tr>
+    </table>
+
+
+</form>
+{% endblock %}
